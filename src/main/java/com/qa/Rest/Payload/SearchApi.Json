@@ -1,0 +1,29 @@
+{
+  "ccsIdOrContNoOrContApptNo": "",
+  "apptDateFrom": "",
+  "apptDateTo": "",
+  "lineId": [
+
+  ],
+  "appointmentType": [
+
+  ],
+  "truckingCompanyId": "",
+  "truckingCompanyName": "",
+  "subContractCompanyId": "",
+  "subContractCompanyName": "",
+  "bookingNo": "",
+  "passNo": "",
+  "truckId": "",
+  "driverPortPassId": "",
+  "grade": "",
+  "status": [
+
+  ],
+  "truckVisitAppointmentNo": "",
+  "clientCode": "GBLC000103",
+  "site": "CLCIST1",
+  "pageNo":1,
+  "pageSize":20,
+  "order": ""
+}

@@ -1,0 +1,366 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "list": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "caNo": {
+              "type": "integer"
+            },
+            "containerNo": {
+              "type": "null"
+            },
+            "bookingNo": {
+              "type": "string"
+            },
+            "bookingItem": {
+              "type": "string"
+            },
+            "edoNo": {
+              "type": "null"
+            },
+            "isoCode": {
+              "type": "string"
+            },
+            "lineId": {
+              "type": "string"
+            },
+            "temperature": {
+              "type": "null"
+            },
+            "tareWeight": {
+              "type": "null"
+            },
+            "safeWeight": {
+              "type": "null"
+            },
+            "grossWeight": {
+              "type": "null"
+            },
+            "seal1": {
+              "type": "null"
+            },
+            "seal2": {
+              "type": "null"
+            },
+            "seal3": {
+              "type": "null"
+            },
+            "seal4": {
+              "type": "null"
+            },
+            "approvedHaz": {
+              "type": "null"
+            },
+            "deliveryStatus": {
+              "type": "null"
+            },
+            "holdFlag": {
+              "type": "null"
+            },
+            "truckingCompanyId": {
+              "type": "string"
+            },
+            "appointmentType": {
+              "type": "string"
+            },
+            "subContractCompanyId": {
+              "type": "null"
+            },
+            "appointmentDate": {
+              "type": "string"
+            },
+            "appointmentDateStr": {
+              "type": "null"
+            },
+            "appointmentTime": {
+              "type": "string"
+            },
+            "referenceNo": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "tvaNo": {
+              "type": "null"
+            },
+            "containerType": {
+              "type": "null"
+            },
+            "caRequestId": {
+              "type": "integer"
+            },
+            "error": {
+              "type": "null"
+            },
+            "truckingCompanyName": {
+              "type": "string"
+            },
+            "bol": {
+              "type": "null"
+            },
+            "subContractCompanyName": {
+              "type": "null"
+            },
+            "clientCode": {
+              "type": "string"
+            },
+            "site": {
+              "type": "string"
+            },
+            "sztpht": {
+              "type": "string"
+            },
+            "groupCode": {
+              "type": "null"
+            },
+            "n4AppointmentNo": {
+              "type": "null"
+            },
+            "oog": {
+              "type": "string"
+            },
+            "hazard": {
+              "type": "string"
+            },
+            "hazardDetails": {
+              "type": "array",
+              "items": {}
+            },
+            "overlongBack": {
+              "type": "null"
+            },
+            "overlongFront": {
+              "type": "null"
+            },
+            "overwideLeft": {
+              "type": "null"
+            },
+            "overwideRight": {
+              "type": "null"
+            },
+            "overHeight": {
+              "type": "null"
+            },
+            "vgmWeight": {
+              "type": "null"
+            },
+            "consigneeName": {
+              "type": "null"
+            },
+            "vesselName": {
+              "type": "null"
+            },
+            "yardPosition": {
+              "type": "null"
+            },
+            "terminalRotationNumber": {
+              "type": "null"
+            },
+            "action": {
+              "type": "null"
+            },
+            "allowStandBy": {
+              "type": "boolean"
+            },
+            "reefer": {
+              "type": "boolean"
+            },
+            "gateId": {
+              "type": "null"
+            },
+            "activeHoldList": {
+              "type": "null"
+            },
+            "releaseHoldList": {
+              "type": "null"
+            },
+            "requestFromTerminal": {
+              "type": "boolean"
+            },
+            "remarks": {
+              "type": "string"
+            },
+            "tvaReferenceNo": {
+              "type": "null"
+            },
+            "issuerCode": {
+              "type": "null"
+            },
+            "bulkRequest": {
+              "type": "boolean"
+            },
+            "speedGateRefNo": {
+              "type": "null"
+            },
+            "vesselId": {
+              "type": "null"
+            },
+            "voyage": {
+              "type": "null"
+            },
+            "freightKind": {
+              "type": "null"
+            },
+            "userName": {
+              "type": "string"
+            },
+            "yardBlock": {
+              "type": "string"
+            },
+            "estimatedDischargeTime": {
+              "type": "string"
+            },
+            "portOfDischarge": {
+              "type": "null"
+            },
+            "portOfLoading": {
+              "type": "null"
+            },
+            "storagePaidThruDate": {
+              "type": "null"
+            },
+            "preAdviceCreatedInCcsFlag": {
+              "type": "boolean"
+            },
+            "bondedTruckingCmpy": {
+              "type": "string"
+            },
+            "cancelledTime": {
+              "type": "string"
+            },
+            "yardRow": {
+              "type": "null"
+            },
+            "yardBlockPosition": {
+              "type": "null"
+            },
+            "passNo": {
+              "type": "null"
+            },
+            "truckId": {
+              "type": "string"
+            },
+            "passExpTime": {
+              "type": "null"
+            },
+            "sendPreAdviceDetailsToTerminal": {
+              "type": "boolean"
+            },
+            "driverPortPassId": {
+              "type": "string"
+            },
+            "grade": {
+              "type": "string"
+            },
+            "lastModifiedDate": {
+              "type": "string"
+            },
+            "cutOffDate": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "caNo",
+            "containerNo",
+            "bookingNo",
+            "bookingItem",
+            "edoNo",
+            "isoCode",
+            "lineId",
+            "temperature",
+            "tareWeight",
+            "safeWeight",
+            "grossWeight",
+            "seal1",
+            "seal2",
+            "seal3",
+            "seal4",
+            "approvedHaz",
+            "deliveryStatus",
+            "holdFlag",
+            "truckingCompanyId",
+            "appointmentType",
+            "subContractCompanyId",
+            "appointmentDate",
+            "appointmentDateStr",
+            "appointmentTime",
+            "referenceNo",
+            "status",
+            "tvaNo",
+            "containerType",
+            "caRequestId",
+            "error",
+            "truckingCompanyName",
+            "bol",
+            "subContractCompanyName",
+            "clientCode",
+            "site",
+            "sztpht",
+            "groupCode",
+            "n4AppointmentNo",
+            "oog",
+            "hazard",
+            "hazardDetails",
+            "overlongBack",
+            "overlongFront",
+            "overwideLeft",
+            "overwideRight",
+            "overHeight",
+            "vgmWeight",
+            "consigneeName",
+            "vesselName",
+            "yardPosition",
+            "terminalRotationNumber",
+            "action",
+            "allowStandBy",
+            "reefer",
+            "gateId",
+            "activeHoldList",
+            "releaseHoldList",
+            "requestFromTerminal",
+            "remarks",
+            "tvaReferenceNo",
+            "issuerCode",
+            "bulkRequest",
+            "speedGateRefNo",
+            "vesselId",
+            "voyage",
+            "freightKind",
+            "userName",
+            "yardBlock",
+            "estimatedDischargeTime",
+            "portOfDischarge",
+            "portOfLoading",
+            "storagePaidThruDate",
+            "preAdviceCreatedInCcsFlag",
+            "bondedTruckingCmpy",
+            "cancelledTime",
+            "yardRow",
+            "yardBlockPosition",
+            "passNo",
+            "truckId",
+            "passExpTime",
+            "sendPreAdviceDetailsToTerminal",
+            "driverPortPassId",
+            "grade",
+            "lastModifiedDate",
+            "cutOffDate"
+          ]
+        }
+      ]
+    },
+    "totalRecords": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "list",
+    "totalRecords"
+  ]
+}
