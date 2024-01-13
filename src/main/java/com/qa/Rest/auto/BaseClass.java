@@ -5,7 +5,7 @@ import com.qa.Rest.utils.PropertyUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+
 
 import io.restassured.response.Response;
 import java.text.SimpleDateFormat;
