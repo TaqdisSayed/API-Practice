@@ -2,7 +2,6 @@ package com.qa.Rest.auto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.Rest.utils.CreateRunTimeFolder;
 import com.qa.Rest.utils.PropertyUtils;
-import com.sun.javafx.collections.MappingChange;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.BeforeClass;

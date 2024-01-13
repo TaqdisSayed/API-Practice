@@ -10,8 +10,8 @@
 
 
     <properties>
-        <!--<maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>-->
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <!--<allure.maven.version>2.12.0</allure.maven.version>
         <allure.testng.version>2.24.0</allure.testng.version>-->
         <!--<timestamp>${maven.build.timestamp}</timestamp>-->
@@ -69,9 +69,9 @@
     </plugins>
     </build> &lt;!&ndash;This is one workin set&ndash;&gt;-->
 
-    <build>
-        <plugins>
-            <!-- Configure the Maven compiler plugin to include the timestamp -->
+    <!--<build>
+        &lt;!&ndash;<plugins>
+            &lt;!&ndash; Configure the Maven compiler plugin to include the timestamp &ndash;&gt;
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -104,11 +104,11 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>&ndash;&gt;
 
 
-            <!-- Configure the build-helper-maven-plugin to generate a timestamp -->
-            <!--<plugin>
+            &lt;!&ndash; Configure the build-helper-maven-plugin to generate a timestamp &ndash;&gt;
+            &lt;!&ndash;<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
                 <version>3.5.0</version>
@@ -126,10 +126,10 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>&ndash;&gt;
 
-            <!-- Configure the Allure Maven plugin -->
-            <!--<plugin>
+            &lt;!&ndash; Configure the Allure Maven plugin &ndash;&gt;
+            &lt;!&ndash;<plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>2.10.0</version> &lt;!&ndash; Update to the latest version &ndash;&gt;
@@ -138,9 +138,9 @@
                     <reportVersion>2.14.0</reportVersion>
                     <resultsDirectory>${project.build.directory}/allure-results/${maven.build.timestamp}</resultsDirectory>
                 </configuration>
-            </plugin>-->
+            </plugin>&ndash;&gt;
         </plugins>
-    </build>
+    </build>-->
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
@@ -148,7 +148,7 @@
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>5.3.1</version>
-            <scope>project</scope>
+            <scope>compile</scope>
         </dependency>
 
 
