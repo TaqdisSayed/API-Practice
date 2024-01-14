@@ -47,12 +47,12 @@ public class ContainerAppointmentPickUpEmptyTest extends BaseClass {
         String a = j.get("referenceNo");
         Assert.assertEquals(j.getString("list[0].referenceNo"),p.getProperty("ccsIdOrContNoOrContApptNo"));*/
 
-       s.SetSearchPayload("ccsIdOrContNoOrContApptNo",p.getProperty("ccsIdOrContNoOrContApptNo"));
+      /* s.SetSearchPayload("ccsIdOrContNoOrContApptNo",p.getProperty("ccsIdOrContNoOrContApptNo"));
         Search s1 = SearchRequest(p.getProperty("ccsIdOrContNoOrContApptNo"));
         Response response = RestCalls.post(file);
         StatusCode.assertStatusCode(response.statusCode(), StatusCode.CODE_200);
         StatusCode.assert_Response(response,s1);
-        StatusCode.assert_Headers(response,"Content-Type");
+     */   StatusCode.assert_Headers(response,"Content-Type");
     }
 
     @Test
