@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class RestCalls extends BaseClass {
 
-    public static Properties p1 = PropertyUtils.propertyLoader("C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\resources\\Config.properties");
+    public static Properties p1 = PropertyUtils.propertyLoader("\\src\\main\\resources\\Config.properties");
 
 
     /*public static Response post(File f){

@@ -39,7 +39,7 @@ public class SearchContApptTest extends BaseClass {
     //public Response response;
     SearchCall s = new SearchCall();
     String filePath
-            = "C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json";
+            = "\\src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json";
     File file = new File(filePath);
 
     Map<String, Object> mapper1;
