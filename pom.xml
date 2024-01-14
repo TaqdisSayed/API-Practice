@@ -152,6 +152,7 @@
         </dependency>
 
 
+
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -210,6 +211,14 @@
             <artifactId>lombok</artifactId>
             <version>1.18.18</version>
             <scope>provided</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.2.1</version>
+            <type>maven-plugin</type>
         </dependency>
 
         <!--1.9.5-->
