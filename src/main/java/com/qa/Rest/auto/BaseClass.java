@@ -16,7 +16,7 @@ public class BaseClass {
     CreateRunTimeFolder createRunTimeFolder = new CreateRunTimeFolder();
     String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
     String folderPath = "folders/" + timestamp; // You can change the directory as needed
-    public Properties p = PropertyUtils.propertyLoader("C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\resources\\Data.properties");
+    public Properties p = PropertyUtils.propertyLoader("\\src\\main\\resources\\Data.properties");
     public  Response response;
     public static final Logger logger = LogManager.getLogger(BaseClass.class);
 
