@@ -145,3 +145,121 @@ public class SearchContApptTest extends SearchCall  {
 
 
         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
+
+
+
+
+         <!--<build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>7</source>
+                        <target>7</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+            </build>-->
+
+
+            <!--<build>  &lt;!&ndash;This is working set&ndash;&gt;
+                <plugins>
+                     &lt;!&ndash;Configure the Maven compiler plugin to include the timestamp&ndash;&gt;
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.8.1</version>
+                        <configuration>
+                            <source>1.8</source>
+                            <target>1.8</target>
+                            <compilerArgs>
+                                <arg>-DMaven.build.timestamp=${maven.build.timestamp}</arg>
+                            </compilerArgs>
+                        </configuration>
+                    </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+                <configuration>
+                    &lt;!&ndash; Set the results directory with timestamp &ndash;&gt;
+                    <resultsDirectory>${project.build.directory}/allure-results/${maven.build.timestamp.format}</resultsDirectory>
+                </configuration>
+            </plugin>
+            </plugins>
+            </build> &lt;!&ndash;This is one workin set&ndash;&gt;-->
+
+            <!--<build>
+                &lt;!&ndash;<plugins>
+                    &lt;!&ndash; Configure the Maven compiler plugin to include the timestamp &ndash;&gt;
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.8.1</version>
+                        <configuration>
+                            <source>1.8</source>
+                            <target>1.8</target>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>3.2.0</version>
+                        <executions>
+                            <execution>
+                                <id>copy-folder</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/src/main/resources</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <filtering>false</filtering>
+                                            <directory>${project.basedir}/target/folders</directory>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>&ndash;&gt;
+
+
+                    &lt;!&ndash; Configure the build-helper-maven-plugin to generate a timestamp &ndash;&gt;
+                    &lt;!&ndash;<plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <version>3.5.0</version>
+                        <executions>
+                            <execution>
+                                <id>timestamp-property</id>
+                                <goals>
+                                    <goal>timestamp-property</goal>
+                                </goals>
+                                <configuration>
+                                    <name>maven.build.timestamp</name>
+                                    <pattern>${timestamp.format}</pattern>
+                                    <unit>yyyyMMdd-HMass</unit>
+                                    <outputDirectory>${project.build.directory}</outputDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>&ndash;&gt;
+
+                    &lt;!&ndash; Configure the Allure Maven plugin &ndash;&gt;
+                    &lt;!&ndash;<plugin>
+                        <groupId>io.qameta.allure</groupId>
+                        <artifactId>allure-maven</artifactId>
+                        <version>2.10.0</version> &lt;!&ndash; Update to the latest version &ndash;&gt;
+                        <configuration>
+                            &lt;!&ndash; Set the results directory with timestamp &ndash;&gt;
+                            <reportVersion>2.14.0</reportVersion>
+                            <resultsDirectory>${project.build.directory}/allure-results/${maven.build.timestamp}</resultsDirectory>
+                        </configuration>
+                    </plugin>&ndash;&gt;
+                </plugins>
+            </build>-->
