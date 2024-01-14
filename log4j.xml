@@ -7,7 +7,7 @@
         </layout>
     </appender>
     <appender name="FileAppender" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="../logs/builder-log4j.log"/>
+        <param name="File" value="C://Users//tausi//Desktop//result.log"/>
         <param name="MaxFileSize" value="10MB"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{MM/dd HH:mm:ss} %-5p %30.30c %x - %m\n"/>
