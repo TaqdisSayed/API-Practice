@@ -29,7 +29,7 @@ public class SearchCall {
 
     //public Properties p = PropertyUtils.propertyLoader("C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\resources\\Data.properties");
     String filePath
-            = "C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json";
+            = "\\src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json";
     public File file = new File(filePath);
 
 
