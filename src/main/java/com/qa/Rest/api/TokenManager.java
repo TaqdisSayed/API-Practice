@@ -20,20 +20,20 @@ public class TokenManager {
     public static String getToken() throws JSONException  {
 
 
-        Properties p = PropertyUtils.propertyLoader("\\src\\main\\resources\\Config.properties");
+        Properties p = PropertyUtils.propertyLoader("C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\resources\\Config.properties");
 
         /*System.out.println(p.getProperty("client_id"));
         System.out.println(p.getProperty("client_secret"));*/
         //p.getProperty("username") p.getProperty("password")
         Response response =
                 given().
-                        auth().preemptive().basic("GLOBAL","zVEHInfSRfhMXHLTk1nhsNdMFUQjDTKb").
+                        auth().preemptive().basic(p.getProperty("client_id"),p.getProperty("Imp")).
                         contentType("application/x-www-form-urlencoded")//log().all()
                         .formParam("grant_type", "password")
-                        .formParam("username","to.chile" )
-                        .formParam("password","P@ssw0rd")
+                        .formParam("username",p.getProperty("username"))
+                        .formParam("password",p.getProperty("password"))
                         .when()
-                .post("https://staging-login.cargoes.com/auth/realms/dtworld/protocol/openid-connect/token");
+                .post(p.getProperty("TokenURL"));
 
         assertThat(response.statusCode(),equalTo(200));
         JSONObject jsonObject = new JSONObject(response.getBody().asString());

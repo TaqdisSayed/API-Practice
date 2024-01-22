@@ -20,11 +20,14 @@ public class BaseClass {
     public  Response response;
     public static final Logger logger = LogManager.getLogger(BaseClass.class);
 
+    public static Properties p1 = PropertyUtils.propertyLoader("C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\resources\\Config.properties");
+
 
     public Map<String, String> payload
             = new HashMap<>();
 
-    public static  final String SEARCH_API_JSON = "\\src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json";
+    public static  final String SEARCH_API_JSON = "C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json";
+
 
     /*public ObjectMapper objectMapper = new ObjectMapper();
 
