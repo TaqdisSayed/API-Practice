@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class RestCalls extends BaseClass {
 
-    public static Properties p1 = PropertyUtils.propertyLoader("\\src\\main\\resources\\Config.properties");
+    //public static Properties p1 = PropertyUtils.propertyLoader("\\src\\main\\resources\\Config.properties");
 
 
     /*public static Response post(File f){
@@ -31,6 +31,14 @@ public class RestCalls extends BaseClass {
 
 
     }
+
+    public static Response get(String BaseURL,String EndPoint,String QueryParam){
+        return RestResources.get(BaseURL,EndPoint,QueryParam);
+
+
+    }
+
+
 
 
 

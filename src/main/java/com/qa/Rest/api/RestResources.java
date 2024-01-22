@@ -3,6 +3,7 @@ package com.qa.Rest.api;
 import com.qa.Rest.auto.BaseClass;
 import com.qa.Rest.utils.PropertyUtils;
 import io.qameta.allure.restassured.AllureRestAssured;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
@@ -62,6 +63,28 @@ public class RestResources extends BaseClass {
     }*/
 
 
+    public static Response get(String BaseURL, String EndPoint, String QueryParam) {
+        RestAssured.baseURI = BaseURL;
+
+        // Specify the path and query parameter
+        String path = EndPoint;
+        String tenantCode = QueryParam;
+
+        // Make the GET request
+        Response response = RestAssured.given()
+                .auth().preemptive().oauth2(TokenManager.getToken())
+                .queryParam("tenantCode", tenantCode)
+                .when()
+                .get(path);
+
+        // Print the response status code
+        System.out.println("Status Code: " + response.getStatusCode());
+
+        // Print the response body in JSON format
+        System.out.println("Response Body (JSON format):");
+        response.prettyPrint();
+        return response;
+    }
 
 
 
