@@ -20,17 +20,17 @@ public class RestCalls extends BaseClass {
 
     }*/
 
-    public static Response post(Object p){
-        return RestResources.post(p1.getProperty("BaseURL"),TokenManager.getToken(),p);
+    public static Response post(String BaseURL,String Endpoint,Object p){
+        return RestResources.post(BaseURL,Endpoint,p);
 
 
     }
 
-    public static Response post(String p){
+    /*public static Response post(String p){
         return RestResources.post(p1.getProperty("BaseURL"),TokenManager.getToken(),p);
 
 
-    }
+    }*/
 
     public static Response get(String BaseURL,String EndPoint,String QueryParam){
         return RestResources.get(BaseURL,EndPoint,QueryParam);

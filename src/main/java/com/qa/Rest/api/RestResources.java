@@ -7,6 +7,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
+import org.apache.poi.ss.formula.functions.T;
 import org.apache.tools.ant.util.FileUtils;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -34,14 +35,25 @@ public class RestResources extends BaseClass {
 
     }
 
-    public static Response post(String BaseURL, String token, Object f) {
+    public static Response post(String BaseURL,String EndPoint, Object f) {
+
+        /*RestAssured.baseURI = BaseURL;
+
+        // Specify the path and query parameter
+        String path = EndPoint;
+        Response response = RestAssured.given().
+                auth().preemptive().oauth2(TokenManager.getToken()).
+                header("Content-Type", "application/json").
+                body(f).
+                when().
+                post(path);
+        return response;*/
 
         return given().filter(new AllureRestAssured()).
-                contentType(ContentType.JSON)
-                .relaxedHTTPSValidation().
-                header("Authorization", "Bearer" + token).header("Content-Type", "application/json").
+                contentType(ContentType.JSON).
+                header("Authorization", "Bearer" + TokenManager.getToken()).header("Content-Type", "application/json").
                 body(f).
-                post(BaseURL);
+                post("https://gluatapi-community.dpworld.com/vbs/containerappointment/saveCa");
 
     }
 
