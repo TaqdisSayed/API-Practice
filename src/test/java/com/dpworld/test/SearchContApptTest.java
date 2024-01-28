@@ -1,38 +1,23 @@
 package com.dpworld.test;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.qa.Rest.POJO.Search;
 import com.qa.Rest.Payload.Payloads;
 import com.qa.Rest.api.RestCalls;
 import com.qa.Rest.auto.BaseClass;
 import com.qa.Rest.auto.SearchCall;
-import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import jdk.net.SocketFlow;
-import org.apache.tools.ant.types.resources.selectors.Type;
-import org.hamcrest.Matchers;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
+import com.qa.Rest.auto.ExcelReader;
 
 
 public class SearchContApptTest extends BaseClass {
@@ -43,6 +28,8 @@ public class SearchContApptTest extends BaseClass {
     File file = new File(filePath);
 
     Map<String, Object> mapper1;
+    ExcelReader e = new ExcelReader();
+
 
 
 
@@ -105,7 +92,7 @@ public class SearchContApptTest extends BaseClass {
         public void SearchContApptBy_Status (String status) throws IOException {
 
             mapper1 = Payloads.setgetPayload(SEARCH_API_JSON, "Array", "status", status);
-            Response response = RestCalls.post(mapper1);
+            Response response = RestCalls.post(p1.getProperty("BaseURL"),p1.getProperty("SearchEndpoint"),mapper1);
             logger.info("API response body = " + response.getBody().asString());
             Assertions.assertStatusCode(response.statusCode(), Assertions.StatusCODE_200);
             Assertions.validateApiResponse(response, "status", status);
@@ -123,20 +110,37 @@ public class SearchContApptTest extends BaseClass {
     @Test(dataProvider = "ApptType")
     public void SearchContApptBy_ApptType (String ApptType) throws IOException {
 
+       // e.ReadExcel();
         mapper1 = Payloads.setgetPayload(SEARCH_API_JSON, "Array", "appointmentType", ApptType);
-        Response response = RestCalls.post(mapper1);
+        Response response = RestCalls.post(p1.getProperty("BaseURL"),p1.getProperty("SearchEndpoint"),mapper1);
         logger.info("API response body = " + response.getBody().asString());
         Assertions.assertStatusCode(response.statusCode(), Assertions.StatusCODE_200);
         Assertions.validateApiResponse(response, "appointmentType", ApptType);
     }
 
 
+    public  void SearchContApptBy_RefNo (String RefNo) throws IOException {
+
+        mapper1 = Payloads.setgetPayload(SEARCH_API_JSON, "NonArray", "ccsIdOrContNoOrContApptNo", "RefNo");
+        Response response = RestCalls.post(p1.getProperty("BaseURL"),p1.getProperty("SearchEndpoint"),mapper1);
+        logger.info("API Search response body = " + response.getBody().asString());
+        Assertions.assertStatusCode(response.statusCode(), Assertions.StatusCODE_200);
+        JsonPath j=response.jsonPath();
+        assertThat(j.getString("list[0].referenceNo"),equalTo(RefNo));
 
 
+    }
+     @Test
+    public void CreatePUM () throws IOException {
+        mapper1 = Payloads.setgetPayload(CREATE_JSON,CREATE_TESTDATA);
+        Response response = RestCalls.post(p1.getProperty("BaseURL"),p1.getProperty("CreateEndPoint"),mapper1);
+        logger.info("API Create response body = " + response.getBody().asString());
+        Assertions.assertStatusCode(response.statusCode(), Assertions.StatusCODE_200);
+        Assertions.assert_Status(response,Assertions.AWAITING_APPROVAL);
+        SearchContApptBy_RefNo(Assertions.fetch_ReferenceNo(response));
 
 
-
-
+    }
 
         public Search SearchRequest (String ccsIdOrContNoOrContApptNo){
             System.out.println("inside playlist builder");

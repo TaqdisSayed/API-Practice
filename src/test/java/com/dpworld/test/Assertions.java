@@ -20,6 +20,8 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class Assertions extends Payloads {
 
+    public static JsonPath j;
+
     public static int StatusCODE_200 = 200;
     public static int StatusCODE_400 = 400;
     public static int StatusCODE_401 = 401;
@@ -30,6 +32,13 @@ public class Assertions extends Payloads {
     public static int StatusCODE_501 = 501;
     public static int StatusCODE_502 = 502;
     public static int StatusCODE_503 = 503;
+    public static String AWAITING_APPROVAL = "AWAITING APPROVAL";
+    public static String OK = "OK";
+    public static String REJECTED = "REJECTED";
+    public static String CANCELLED = "CANCELLED";
+    public static String PARTIALLY_APPROVED = "PARTIALLY_APPROVED";
+
+
 
 
 
@@ -94,10 +103,17 @@ public class Assertions extends Payloads {
         org.hamcrest.MatcherAssert.assertThat(actualUrl, Matchers.equalTo("https://gluatapi-community.dpworld.com/vbs/containerappointment/search"));
     }
 
-    public static void assert_Response(Response response, Search Expected) {
-        /*System.out.println("API response body = " + response.getBody().asString());
-        JsonPath j=response.jsonPath();
-        assertThat(j.getString("list[0].referenceNo"),equalTo(Expected));*/
+    public  static String  fetch_ReferenceNo(Response response) {
+        j=response.jsonPath();
+        return j.getString("list[0].referenceNo");
+
+    }
+
+
+    public static void assert_Status(Response response, String ExpectedStatus) {
+        j=response.jsonPath();
+        String a = j.getString("status");
+        assertThat(j.getString("status"),equalTo(ExpectedStatus));
     }
 
     public static void assert_Headers(Response response, String Header) {

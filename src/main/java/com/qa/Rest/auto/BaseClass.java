@@ -4,15 +4,19 @@ import com.qa.Rest.utils.CreateRunTimeFolder;
 import com.qa.Rest.utils.PropertyUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.testng.ITestResult;
 import org.testng.annotations.BeforeClass;
 
 
 import io.restassured.response.Response;
+import org.testng.annotations.BeforeMethod;
+
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 
-public class BaseClass {
+public class BaseClass  {
     CreateRunTimeFolder createRunTimeFolder = new CreateRunTimeFolder();
     String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
     String folderPath = "folders/" + timestamp; // You can change the directory as needed
@@ -27,17 +31,29 @@ public class BaseClass {
             = new HashMap<>();
 
     public static  final String SEARCH_API_JSON = "C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json";
-
+    public static  final String CREATE_JSON = "C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\java\\com\\qa\\Rest\\Payload\\CreateApi.Json";
+    public static final String CREATE_TESTDATA = "C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\test\\java\\TestData\\Create.xlsx";
 
     /*public ObjectMapper objectMapper = new ObjectMapper();
 
     public Map<String, Object> mapper1;*/
 
 
+
+    @BeforeMethod
+    public void beforeTestCase(Method m) {
+        System.out.println(m.getName());
+
+
+    }
+
+
+
     @BeforeClass
     public void setup() {
         // Initialize Log4j
         System.setProperty("log4j.configurationFile", "C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\log4j.xml");
+
     }
 
 
