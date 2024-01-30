@@ -20,7 +20,7 @@ public class TokenManager {
     public static String getToken() throws JSONException  {
 
 
-        Properties p = PropertyUtils.propertyLoader("C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\resources\\Config.properties");
+        Properties p = PropertyUtils.propertyLoader("src\\main\\resources\\Config.properties");
 
         /*System.out.println(p.getProperty("client_id"));
         System.out.println(p.getProperty("client_secret"));*/
