@@ -11,10 +11,11 @@ public class PropertyUtils {
         Properties properties = new Properties();
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader(filePath));
+            //reader = new BufferedReader(new FileReader(filePath));
+            FileInputStream input = new FileInputStream(filePath);
             try {
-                properties.load(reader);
-                reader.close();
+                properties.load(input);
+                input.close();
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new RuntimeException("failed to load properties file "+ filePath);

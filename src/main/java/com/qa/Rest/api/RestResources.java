@@ -49,11 +49,13 @@ public class RestResources extends BaseClass {
                 post(path);
         return response;*/
 
+        String a = BaseURL+EndPoint;
+
         return given().filter(new AllureRestAssured()).
                 contentType(ContentType.JSON).
                 header("Authorization", "Bearer" + TokenManager.getToken()).header("Content-Type", "application/json").
                 body(f).
-                post("https://gluatapi-community.dpworld.com/vbs/containerappointment/saveCa");
+                post(a);
 
     }
 

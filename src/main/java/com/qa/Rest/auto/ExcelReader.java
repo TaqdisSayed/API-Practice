@@ -44,7 +44,7 @@ public class ExcelReader {
 
     public void ReadExcel() throws IOException {
 
-        String excelFilePath = "C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\test\\java\\TestData\\Create.xlsx";
+        String excelFilePath = "src\\test\\java\\TestData\\Create.xlsx";
 
         String RowID = "1";
 

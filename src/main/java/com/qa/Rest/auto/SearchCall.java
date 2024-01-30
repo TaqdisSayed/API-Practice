@@ -96,7 +96,7 @@ public class SearchCall {
             }
         }
 
-        File log = new File("C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json");
+        File log = new File("src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json");
         FileWriter fileWriter = new FileWriter(log, false);
 
 
@@ -106,7 +106,7 @@ public class SearchCall {
                     + entry.getValue());
             String t = entry.getKey()
                     + entry.getValue();
-            File log1 = new File("C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json");
+            File log1 = new File("src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json");
             FileWriter fileWriter1 = new FileWriter(log1, true);
             /*FileWriter fWriter = new FileWriter(
                     "C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApicopy.Json");*/

@@ -21,11 +21,6 @@ import com.qa.Rest.auto.ExcelReader;
 
 
 public class SearchContApptTest extends BaseClass {
-    //public Response response;
-    SearchCall s = new SearchCall();
-    String filePath
-            = "\\src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json";
-    File file = new File(filePath);
 
     Map<String, Object> mapper1;
     ExcelReader e = new ExcelReader();
@@ -117,7 +112,6 @@ public class SearchContApptTest extends BaseClass {
         Assertions.assertStatusCode(response.statusCode(), Assertions.StatusCODE_200);
         Assertions.validateApiResponse(response, "appointmentType", ApptType);
     }
-
 
     public  void SearchContApptBy_RefNo (String RefNo) throws IOException {
 
