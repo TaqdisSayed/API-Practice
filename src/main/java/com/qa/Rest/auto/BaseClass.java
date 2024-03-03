@@ -31,9 +31,11 @@ public class BaseClass  {
             = new HashMap<>();
 
     public static Properties p1 = PropertyUtils.propertyLoader("src\\main\\resources\\Config.properties");
+    public static Properties p2 = PropertyUtils.propertyLoader("src\\main\\resources\\DataFile.properties");
+    public static  final String DataFile = "src\\main\\resources\\DataFile.properties";
     public static  final String SEARCH_API_JSON = "src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json";
     public static  final String CREATE_JSON = "src\\main\\java\\com\\qa\\Rest\\Payload\\CreateApi.Json";
-    public static final String CREATE_TESTDATA = "src\\test\\java\\TestData\\Create.xlsx";
+    public static final String CREATE_TESTDATA = "src\\test\\java\\TestData\\Create_PUM.xlsx";
 
     /*public ObjectMapper objectMapper = new ObjectMapper();
 

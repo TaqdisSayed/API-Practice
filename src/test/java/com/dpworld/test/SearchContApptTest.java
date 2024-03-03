@@ -5,12 +5,14 @@ import com.qa.Rest.Payload.Payloads;
 import com.qa.Rest.api.RestCalls;
 import com.qa.Rest.auto.BaseClass;
 import com.qa.Rest.auto.SearchCall;
+import com.qa.Rest.utils.PropertyUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
@@ -124,19 +126,29 @@ public class SearchContApptTest extends BaseClass {
 
 
     }
-     @Test
-    public void CreatePUM () throws IOException {
-        mapper1 = Payloads.setgetPayload(CREATE_JSON,CREATE_TESTDATA);
+
+
+    @DataProvider(name = "RowID")
+    public Object[][] RowID() {
+        return new Object[][]{
+                {"1"},
+                {"2"},
+        };
+    }
+
+     @Test(dataProvider = "RowID")
+    public void Create_PUM_AwaitingApproval (String RowID) throws IOException {
+        mapper1 = Payloads.setgetPayload(CREATE_JSON,CREATE_TESTDATA,RowID);
         Response response = RestCalls.post(p1.getProperty("BaseURL"),p1.getProperty("CreateEndPoint"),mapper1);
         logger.info("API Create response body = " + response.getBody().asString());
         Assertions.assertStatusCode(response.statusCode(), Assertions.StatusCODE_200);
         Assertions.assert_Status(response,Assertions.AWAITING_APPROVAL);
+         PropertyUtils.PropertyWriter(DataFile,"referenceNo=123");
         SearchContApptBy_RefNo(Assertions.fetch_ReferenceNo(response));
-
 
     }
 
-        public Search SearchRequest (String ccsIdOrContNoOrContApptNo){
+        /*public Search SearchRequest (String ccsIdOrContNoOrContApptNo){
             System.out.println("inside playlist builder");
             return Search.builder().
                     ccsIdOrContNoOrContApptNo(ccsIdOrContNoOrContApptNo).build();
@@ -144,7 +156,7 @@ public class SearchContApptTest extends BaseClass {
 
         public void assertSearchcall (String response, Search request){
             assertThat(response, equalTo(request.getCcsIdOrContNoOrContApptNo()));
-        }
+        }*/
 
 
     }

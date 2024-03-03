@@ -12,6 +12,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.JSONObject;
+import com.qa.Rest.auto.ExcelReader;
 
 
 import java.awt.*;
@@ -72,11 +73,11 @@ public class Payloads {
     }
 
 
-    public static void ReadExcel(String file) throws IOException {
+    public static void ReadExcel(String file,String RowiD) throws IOException {
 
-        String excelFilePath = "src\\test\\java\\TestData\\Create.xlsx";
+        String excelFilePath = "src\\test\\java\\TestData\\Create_PUM.xlsx";
 
-        String RowID = "1";
+        String RowID = RowiD;
 
         FileInputStream inputStream = new FileInputStream(excelFilePath);
         Workbook workbook = new XSSFWorkbook(inputStream) ;
@@ -165,11 +166,11 @@ public class Payloads {
     }
 
 
-    public static Map<String, Object> setgetPayload(String Json, String TestData) throws IOException {
+    public static Map<String, Object> setgetPayload(String Json, String TestData,String RowID) throws IOException {
         mapper1 = objectMapper.readValue(new File(Json),
                 new TypeReference<Map<String, Object>>() {
                 });
-        ReadExcel(TestData);
+        ReadExcel(TestData,RowID);
         /*mapper1.put("bookingNo","NOISO");
         mapper1.put("truckId","DTKS74");
         mapper1.put("driverPortPassId","234449877");*/

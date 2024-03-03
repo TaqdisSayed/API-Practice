@@ -16,6 +16,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -42,9 +43,11 @@ public class ExcelReader {
 
     public static JSONObject jsonObject;
 
-    public void ReadExcel() throws IOException {
+    /*@DataProvider(name = "Reader")
+    public Object[][]  ReadExcel(Method m) throws IOException {
 
-        String excelFilePath = "src\\test\\java\\TestData\\Create.xlsx";
+        m.getName();
+        String excelFilePath = "src\\test\\java\\TestData\\"+m.getName();
 
         String RowID = "1";
 
@@ -95,9 +98,81 @@ public class ExcelReader {
             }
         }
 
+        return new Object[][]{
+                {"DOM"},
+                {"PUM"},
+        };
+    }*/
+
+
+    public static void ReadExcel(String file) throws IOException {
+
+        String excelFilePath = file;
+
+        String RowID = "1";
+
+        FileInputStream inputStream = new FileInputStream(excelFilePath);
+        Workbook workbook = new XSSFWorkbook(inputStream) ;
+        // Assuming you are reading the first sheet. Change the index if needed.
+        Sheet sheet = workbook.getSheetAt(0);
+
+        int rowCount = sheet.getPhysicalNumberOfRows();
+
+        int columnCount = sheet.getRow(0).getPhysicalNumberOfCells();
+
+        String a = null;
+        int k =0;
+        int row =0;
+
+        for( k= 0;k<=rowCount-1;k++)
+        {
+            a = sheet.getRow(k).getCell(0).getStringCellValue();
+            if(a.equals(RowID))
+            {
+                for(int j=0;j<=columnCount-1;j++)
+                {
+
+                    for (int i=0;i<=k;i=i+k)
+                    {
+                        a = sheet.getRow(i).getCell(j).getStringCellValue();
+                        System.out.println(a);
+                        String key=null;
+                        String value= null;
+                        if(i==0){
+                            key = a;
+                        }else{
+                            value = a;
+                            mapper1.put(key,value);
+                        }
+
+
+                    }
+                }
+
+
+
+
+
+
+
+            }
+        }
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
