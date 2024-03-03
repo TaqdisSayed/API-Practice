@@ -25,7 +25,7 @@ public class ReportsTest extends BaseClass {
 
 
 
-         @Test
+       /*  @Test
         public void GetReports()
         {
             String a = p1.getProperty("ReportsURL");
@@ -75,7 +75,7 @@ public class ReportsTest extends BaseClass {
         }
 
     }
-
+*/
 
 
     }

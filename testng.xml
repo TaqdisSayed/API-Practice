@@ -17,7 +17,7 @@
                 <methods>
                     <include name="SearchContApptBy_Status"/>
                     <include name="SearchContApptBy_ApptType"/>
-                    <include name="CreatePUM"/>
+                    <include name="Create_PUM_AwaitingApproval"/>
                 </methods>
             </class>
         </classes>

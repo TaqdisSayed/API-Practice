@@ -150,7 +150,7 @@ public class Payloads {
                 break;
             case "NonArray":
                 System.out.println("NonArray");
-                mapper1.put(key, namesNode);
+                mapper1.put(key, value);
                 jsonRequest = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(mapper1);
                 System.out.println(jsonRequest);
                 break;

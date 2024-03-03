@@ -117,7 +117,7 @@ public class SearchContApptTest extends BaseClass {
 
     public  void SearchContApptBy_RefNo (String RefNo) throws IOException {
 
-        mapper1 = Payloads.setgetPayload(SEARCH_API_JSON, "NonArray", "ccsIdOrContNoOrContApptNo", "RefNo");
+        mapper1 = Payloads.setgetPayload(SEARCH_API_JSON, "NonArray", "ccsIdOrContNoOrContApptNo", RefNo);
         Response response = RestCalls.post(p1.getProperty("BaseURL"),p1.getProperty("SearchEndpoint"),mapper1);
         logger.info("API Search response body = " + response.getBody().asString());
         Assertions.assertStatusCode(response.statusCode(), Assertions.StatusCODE_200);
