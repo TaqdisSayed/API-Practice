@@ -32,7 +32,7 @@ public class Assertions extends Payloads {
     public static int StatusCODE_501 = 501;
     public static int StatusCODE_502 = 502;
     public static int StatusCODE_503 = 503;
-    public static String AWAITING_APPROVAL = "AWAITING APPROVAL";
+    public static String AWAITING_APPROVAL = "Awaiting Approval";
     public static String OK = "OK";
     public static String REJECTED = "REJECTED";
     public static String CANCELLED = "CANCELLED";
@@ -105,7 +105,7 @@ public class Assertions extends Payloads {
 
     public  static String  fetch_ReferenceNo(Response response) {
         j=response.jsonPath();
-        return j.getString("list[0].referenceNo");
+        return j.getString("referenceNo");
 
     }
 

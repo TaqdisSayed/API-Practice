@@ -30,14 +30,15 @@ public class PropertyUtils {
     public static Properties PropertyWriter(String filePath,String ResultPath) throws FileNotFoundException {
         Properties props = new Properties();
 
-        /*try {
+        try {
             FileWriter myWriter = new FileWriter(filePath);
-            myWriter.write("allure.results.directory="+ResultPath);
+           // myWriter.write("allure.results.directory="+ResultPath);
+            myWriter.write(ResultPath);
             myWriter.flush();
             myWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
 
         try (FileInputStream in = new FileInputStream(filePath)) {
             props.load(in);
@@ -45,16 +46,29 @@ public class PropertyUtils {
             e.printStackTrace();
         }
 
-        try (FileOutputStream out = new FileOutputStream(filePath)) {
+        /*try (FileOutputStream out = new FileOutputStream(filePath)) {
             props.setProperty("allure.results.directory",ResultPath);
             props.store(out, null);
 
         } catch (IOException ioException) {
             ioException.printStackTrace();
-        } ;
+        } ;*/
         return props;
 
     }
+
+    public static void StoreDataInPropfile(String Text)
+    {
+
+
+
+
+
+    }
+
+
+
+
 
 
     }

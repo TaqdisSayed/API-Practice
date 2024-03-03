@@ -1,0 +1,25 @@
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/tausi/OneDrive - DP World/Desktop/Taqdis/DP_World/VBS_ApiAutomation">
+        <classes>
+            <!--<class name="com.qa.Rest.auto.Sample">
+                <methods>
+                    <include name="getToken"/>
+                </methods>
+            </class>-->
+            <!--<class name="com.dpworld.test.ReportsTest">
+                <methods>
+                    <include name="GetReports"/>
+                    <include name="GenearteReports"/>
+                    <include name="createRelativePath"/>
+                </methods>
+            </class>-->
+            <class name="com.dpworld.test.SearchContApptTest">
+                <methods>
+                    <include name="SearchContApptBy_Status"/>
+                    <include name="SearchContApptBy_ApptType"/>
+                    <include name="CreatePUM"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
