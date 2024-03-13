@@ -33,10 +33,11 @@ public class Assertions extends Payloads {
     public static int StatusCODE_502 = 502;
     public static int StatusCODE_503 = 503;
     public static String AWAITING_APPROVAL = "Awaiting Approval";
-    public static String OK = "OK";
-    public static String REJECTED = "REJECTED";
-    public static String CANCELLED = "CANCELLED";
+    public static String OK = "ok";
+    public static String REJECTED = "[Rejected]";
+    public static String CANCELLED = "[Cancelled]";
     public static String PARTIALLY_APPROVED = "PARTIALLY_APPROVED";
+    public static String PENDING = "[Pending]";
 
 
 

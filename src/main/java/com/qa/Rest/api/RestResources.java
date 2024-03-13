@@ -59,6 +59,66 @@ public class RestResources extends BaseClass {
 
     }
 
+    public static Response put(String BaseURL,String EndPoint) {
+
+        String a = BaseURL+EndPoint;
+        return given().filter(new AllureRestAssured()).
+                contentType(ContentType.JSON).
+                queryParam("remarks","Automated Rejected").
+                header("Authorization", "Bearer" + TokenManager.getToken()).header("Content-Type", "application/json").
+                put(a);
+
+    }
+
+
+    public static Response put(String BaseURL,String EndPoint,String queryParam) {
+
+        String a = BaseURL+EndPoint;
+        return given().filter(new AllureRestAssured()).
+                contentType(ContentType.JSON).
+                header("Authorization", "Bearer" + TokenManager.getToken()).header("Content-Type", "text/plain").
+                header("Accept","*/*").
+                header("selectedLocation","CLCIST1").
+                header("currentClientCode","GBLC000103").
+                header("Accept","application/json, text/plain, */*").
+                header("currentClientType","TO").
+                put(a);
+
+    }
+
+
+
+
+    public static Response delete(String BaseURL,String EndPoint) {
+
+        String a = BaseURL+EndPoint;
+        logger.info("Delete URL :"+a);
+        return given().filter(new AllureRestAssured()).
+                contentType(ContentType.JSON).
+                queryParam("remarks","Automated Cancellation").
+                header("Authorization", "Bearer" + TokenManager.getToken()).header("Content-Type", "text/plain").
+                header("Accept","*/*").
+                header("selectedLocation","CLCIST1").
+                header("currentClientCode","GBLC000103").
+                header("Accept","application/json, text/plain, */*").
+                header("currentClientType","TO").
+                delete(a);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*public static Response post(String BaseURL, String token, Object f) {
 
         int pageSize = 20; // Set your desired page size
@@ -77,17 +137,17 @@ public class RestResources extends BaseClass {
     }*/
 
 
-    public static Response get(String BaseURL, String EndPoint, String QueryParam) {
+    /*public static Response get(String BaseURL, String EndPoint) {
         RestAssured.baseURI = BaseURL;
 
         // Specify the path and query parameter
         String path = EndPoint;
-        String tenantCode = QueryParam;
+        //String tenantCode = QueryParam;
 
         // Make the GET request
         Response response = RestAssured.given()
                 .auth().preemptive().oauth2(TokenManager.getToken())
-                .queryParam("tenantCode", tenantCode)
+                //.queryParam("tenantCode", tenantCode)
                 .when()
                 .get(path);
 
@@ -98,10 +158,26 @@ public class RestResources extends BaseClass {
         System.out.println("Response Body (JSON format):");
         response.prettyPrint();
         return response;
+    }*/
+
+
+
+    public static Response get(String BaseURL,String EndPoint) {
+
+        String a = BaseURL+EndPoint;
+        logger.info("get URL :"+a);
+        return given().filter(new AllureRestAssured()).
+                contentType(ContentType.JSON).
+                //queryParam("remarks","Automated Cancellation").
+                header("Authorization", "Bearer" + TokenManager.getToken()).header("Content-Type", "text/plain").
+                header("Accept","*/*").
+                header("selectedLocation","CLCIST1").
+                header("currentClientCode","GBLC000103").
+                header("Accept","application/json, text/plain, */*").
+                header("currentClientType","TO").
+                get(a);
+
     }
-
-
-
 
 
 

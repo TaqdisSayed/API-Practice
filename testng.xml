@@ -13,13 +13,31 @@
                     <include name="createRelativePath"/>
                 </methods>
             </class>-->
+
+            <class name="com.dpworld.test.CreatePUMApptTest">
+                <methods>
+                    <include name="MsadminCreatePUM"/>
+                    <include name="MsadminRejectPum"/>
+                    <include name="MsadminCancelPum"/>
+                    <include name="MsadminApprovePum"/>
+                    <include name="MsadminCancelRejectedPUM"/>
+
+
+
+
+                </methods>
+            </class>
+
             <class name="com.dpworld.test.SearchContApptTest">
                 <methods>
                     <include name="SearchContApptBy_Status"/>
                     <include name="SearchContApptBy_ApptType"/>
-                    <include name="Create_PUM_AwaitingApproval"/>
+                    <include name="SearchContApptBy_RefNo"/>
                 </methods>
             </class>
+
+
+
         </classes>
     </test>
 </suite>

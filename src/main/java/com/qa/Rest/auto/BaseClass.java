@@ -10,8 +10,12 @@ import org.testng.annotations.BeforeClass;
 
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -31,7 +35,7 @@ public class BaseClass  {
             = new HashMap<>();
 
     public static Properties p1 = PropertyUtils.propertyLoader("src\\main\\resources\\Config.properties");
-    public static Properties p2 = PropertyUtils.propertyLoader("src\\main\\resources\\DataFile.properties");
+    //public static Properties p2 = PropertyUtils.propertyLoader("src\\main\\resources\\DataFile.properties");
     public static  final String DataFile = "src\\main\\resources\\DataFile.properties";
     public static  final String SEARCH_API_JSON = "src\\main\\java\\com\\qa\\Rest\\Payload\\SearchApi.Json";
     public static  final String CREATE_JSON = "src\\main\\java\\com\\qa\\Rest\\Payload\\CreateApi.Json";
@@ -57,6 +61,18 @@ public class BaseClass  {
         // Initialize Log4j
         System.setProperty("log4j.configurationFile", "C:\\Users\\tausi\\OneDrive - DP World\\Desktop\\Taqdis\\DP_World\\VBS_ApiAutomation\\log4j.xml");
 
+    }
+@BeforeSuite
+    public static void ResetFile() {
+        try {
+            File fileToReset = new File("src\\main\\resources\\DataFile.properties");
+            Files.deleteIfExists(fileToReset.toPath());
+            Files.createFile(fileToReset.toPath());
+            System.out.println("File reset successfully.");
+        } catch (IOException e) {
+            System.err.println("Error resetting file: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
 

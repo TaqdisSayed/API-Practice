@@ -24,7 +24,7 @@ import com.qa.Rest.auto.ExcelReader;
 
 public class SearchContApptTest extends BaseClass {
 
-    Map<String, Object> mapper1;
+    public static Map<String, Object> mapper1;
     ExcelReader e = new ExcelReader();
 
 
@@ -85,7 +85,7 @@ public class SearchContApptTest extends BaseClass {
         };
     }
 
-        @Test(dataProvider = "endpointsProvider")
+        @Test(dataProvider = "endpointsProvider",priority = 6)
         public void SearchContApptBy_Status (String status) throws IOException {
 
             mapper1 = Payloads.setgetPayload(SEARCH_API_JSON, "Array", "status", status);
@@ -104,7 +104,7 @@ public class SearchContApptTest extends BaseClass {
         };
     }
 
-    @Test(dataProvider = "ApptType")
+    @Test(dataProvider = "ApptType",priority = 5)
     public void SearchContApptBy_ApptType (String ApptType) throws IOException {
 
        // e.ReadExcel();
@@ -115,38 +115,22 @@ public class SearchContApptTest extends BaseClass {
         Assertions.validateApiResponse(response, "appointmentType", ApptType);
     }
 
-    public  void SearchContApptBy_RefNo (String RefNo) throws IOException {
+    public  static void SearchContApptBy_RefNo (String RefNo,String status) throws IOException {
 
+        //PropertyUtils.readDataFile(DataFile,"")
         mapper1 = Payloads.setgetPayload(SEARCH_API_JSON, "NonArray", "ccsIdOrContNoOrContApptNo", RefNo);
         Response response = RestCalls.post(p1.getProperty("BaseURL"),p1.getProperty("SearchEndpoint"),mapper1);
         logger.info("API Search response body = " + response.getBody().asString());
         Assertions.assertStatusCode(response.statusCode(), Assertions.StatusCODE_200);
         JsonPath j=response.jsonPath();
         assertThat(j.getString("list[0].referenceNo"),equalTo(RefNo));
+        Assertions.validateApiResponse(response, "status", status);
 
 
     }
 
 
-    @DataProvider(name = "RowID")
-    public Object[][] RowID() {
-        return new Object[][]{
-                {"1"},
-                {"2"},
-        };
-    }
 
-     @Test(dataProvider = "RowID")
-    public void Create_PUM_AwaitingApproval (String RowID) throws IOException {
-        mapper1 = Payloads.setgetPayload(CREATE_JSON,CREATE_TESTDATA,RowID);
-        Response response = RestCalls.post(p1.getProperty("BaseURL"),p1.getProperty("CreateEndPoint"),mapper1);
-        logger.info("API Create response body = " + response.getBody().asString());
-        Assertions.assertStatusCode(response.statusCode(), Assertions.StatusCODE_200);
-        Assertions.assert_Status(response,Assertions.AWAITING_APPROVAL);
-         PropertyUtils.PropertyWriter(DataFile,"referenceNo=123");
-        SearchContApptBy_RefNo(Assertions.fetch_ReferenceNo(response));
-
-    }
 
         /*public Search SearchRequest (String ccsIdOrContNoOrContApptNo){
             System.out.println("inside playlist builder");

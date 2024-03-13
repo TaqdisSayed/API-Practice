@@ -23,8 +23,24 @@ public class RestCalls extends BaseClass {
     public static Response post(String BaseURL,String Endpoint,Object p){
         return RestResources.post(BaseURL,Endpoint,p);
 
+    }
+
+    public static Response put(String BaseURL,String Endpoint,String queryParam){
+        return RestResources.put(BaseURL,Endpoint,queryParam);
 
     }
+
+    public static Response put(String BaseURL,String Endpoint){
+        return RestResources.put(BaseURL,Endpoint);
+
+    }
+
+    public static Response delete(String BaseURL,String Endpoint){
+        return RestResources.delete(BaseURL,Endpoint);
+
+    }
+
+
 
     /*public static Response post(String p){
         return RestResources.post(p1.getProperty("BaseURL"),TokenManager.getToken(),p);
@@ -32,8 +48,8 @@ public class RestCalls extends BaseClass {
 
     }*/
 
-    public static Response get(String BaseURL,String EndPoint,String QueryParam){
-        return RestResources.get(BaseURL,EndPoint,QueryParam);
+    public static Response get(String BaseURL,String EndPoint){
+        return RestResources.get(BaseURL,EndPoint);
 
 
     }
